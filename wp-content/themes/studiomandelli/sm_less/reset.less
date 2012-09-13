@@ -1,0 +1,106 @@
+/**
+ * Copyright (c) 2012 Giovanni Battista Brescia.
+ * Dual licensed under MIT and GPL3.
+ * http://www.opensource.org/licenses/mit-license.php
+ * http://www.opensource.org/licenses/GPL-3.0
+ * This code and information is provided "as is" without warranty of any
+ * kind, either expressed or implied, including but not limited to the
+ * implied warranties of merchantability and/or fitness for a particular
+ * purpose.
+ * @author Giovanni Battista Brescia
+ * @email skill83(at)gmail(dot)com
+ * @email gianni(at)ilcroccante(dot)it
+ */
+@selection: #fe57a1;
+html,body{
+    height:100%;
+    }
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
+audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
+audio:not([controls]) { display: none; }
+[hidden] { display: none; }
+html { font-size: 100%; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+html, button, input, select, textarea { font-family: sans-serif; color: #222; }
+body { margin: 0; font-size: 1em; line-height: 1.4; }
+::-moz-selection { background: @selection; color: #fff; text-shadow: none; }
+::selection { background: @selection; color: #fff; text-shadow: none; }
+a { color: #00e; }
+a:visited { color: #551a8b; }
+a:hover { color: #06e; }
+a:focus { outline: thin dotted; }
+a:hover, a:active { outline: 0; }
+abbr[title] { border-bottom: 1px dotted; }
+b, strong { font-weight: bold; }
+blockquote { margin: 1em 40px; }
+dfn { font-style: italic; }
+hr { display: block; height: 1px; border: 0; border-top: 1px solid #ccc; margin: 1em 0; padding: 0; }
+ins { background: #ff9; color: #000; text-decoration: none; }
+mark { background: #ff0; color: #000; font-style: italic; font-weight: bold; }
+pre, code, kbd, samp { font-family: monospace, monospace; _font-family: 'courier new', monospace; font-size: 1em; }
+pre { white-space: pre; white-space: pre-wrap; word-wrap: break-word; }
+q { quotes: none; }
+q:before, q:after { content: ""; content: none; }
+small { font-size: 85%; }
+sub, sup { font-size: 75%; line-height: 0; position: relative; vertical-align: baseline; }
+sup { top: -0.5em; }
+sub { bottom: -0.25em; }
+ul, ol { margin: 1em 0; padding: 0 0 0 40px; }
+dd { margin: 0 0 0 40px; }
+nav ul, nav ol { list-style: none; list-style-image: none; margin: 0; padding: 0; }
+img { border: 0; -ms-interpolation-mode: bicubic; vertical-align: middle; }
+svg:not(:root) { overflow: hidden; }
+figure { margin: 0; }
+form { margin: 0; }
+fieldset { border: 0; margin: 0; padding: 0; }
+label { cursor: pointer; }
+legend {  border: 0; *margin-left: -7px; padding: 0; white-space: normal; }
+button, input, select, textarea { font-size: 100%; margin: 0; vertical-align: baseline; *vertical-align: middle; }
+button, input { line-height: normal;}
+button, input[type="button"], input[type="reset"], input[type="submit"] { cursor: pointer; -webkit-appearance: button; *overflow: visible; }
+button[disabled], input[disabled] { cursor: default; }
+input[type="checkbox"], input[type="radio"] { box-sizing: border-box; padding: 0; *width: 13px; *height: 13px; }
+input[type="search"] { -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
+input[type="search"]::-webkit-search-decoration, input[type="search"]::-webkit-search-cancel-button { -webkit-appearance: none; }
+button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
+textarea { overflow: auto; vertical-align: top; resize: vertical; }
+input:valid, textarea:valid {  }
+input:invalid, textarea:invalid { background-color: #f0dddd; }
+table { border-collapse: collapse; border-spacing: 0; }
+td { vertical-align: top; }
+.chromeframe { margin: 0.2em 0; background: #ccc; color: black; padding: 0.2em 0; }
+h1,h2,h3,h4,h5,h6,p{margin:0;padding:0;font-weight:normal;font-style:normal;}
+
+/*
+ * OLD SIZING METHOD
+ *
+ */
+/*
+	body { font:13px/1.231 sans-serif; }
+	@9: 0.692em;
+	@10: 0.769em; @11: 0.846em; @12: 0.923em; @13: 1em; @14: 1.077em; @15: 1.154em; @16: 1.231em; @17: 1.308em; @18: 1.385em;
+	@20: 1.539em; @22: 1.692em; @24: 1.846em; @26: 2em; @28: 2.154em;
+	@30: 2.308em; @32: 2.461em; @36: 2.769em;
+	@40: 3.077em; @42: 3.231em; @46: 3.538em; @48: 3.692em;
+	@18H: 1.636em;
+	@28H: 2.333em;
+*/
+
+html {
+	font-size: 62.5%;
+	line-height:1.23;
+} 
+
+.font-size(@font-size: 16){
+	@rem:e(%("%srem", (@font-size / 10)));
+	font-size: @font-size * 1px;
+	//line-height: @font-size * 1px;
+	font-size: @rem;
+    //line-height: @rem;
+}
+.lh(@height: 16){
+    @rem:e(%("%srem", (@height / 10)));
+    height:@height * 1px;
+    line-height:@height * 1px;
+    height:@rem;
+    line-height:@rem;
+}

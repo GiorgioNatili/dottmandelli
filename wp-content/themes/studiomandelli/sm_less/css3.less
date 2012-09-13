@@ -1,0 +1,80 @@
+/**
+ * Copyright (c) 2012 Giovanni Battista Brescia.
+ * Dual licensed under MIT and GPL3.
+ * http://www.opensource.org/licenses/mit-license.php
+ * http://www.opensource.org/licenses/GPL-3.0
+ * This code and information is provided "as is" without warranty of any
+ * kind, either expressed or implied, including but not limited to the
+ * implied warranties of merchantability and/or fitness for a particular
+ * purpose.
+ * @author Giovanni Battista Brescia
+ * @email skill83(at)gmail(dot)com
+ * @email gianni(at)ilcroccante(dot)it
+ */
+ .rounded(@radius: 12px) {
+	-webkit-border-radius: @radius;
+	-khtml-border-radius:@radius;
+	-moz-border-radius: @radius;
+	-ms-border-radius: @radius;
+	-o-border-radius: @radius;
+	border-radius: @radius;
+	-webkit-background-clip: padding-box;
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding-box;
+	-khtml-background-clip: padding-box;
+	-moz-background-clip: padding; 
+	-ms-background-clip: padding-box;
+	-o-background-clip: padding-box;
+	background-clip: padding-box;
+}
+
+.box-shadow(@inset: "", @ox: 3px, @oy: 3px, @blur: 3px, @spread: " ", @color: "#000"){
+	-webkit-box-shadow: e(%("%s", @inset)) @ox @oy @blur e(%("%s", @spread)) e(%("%s", @color));  
+	-khtml-box-shadow: e(%("%s", @inset)) @ox @oy @blur e(%("%s", @spread))  e(%("%s", @color));  
+	-moz-box-shadow: e(%("%s", @inset)) @ox @oy @blur e(%("%s", @spread))  e(%("%s", @color));  
+	-ms-box-shadow: e(%("%s", @inset)) @ox @oy @blur e(%("%s", @spread))  e(%("%s", @color));  
+	-o-box-shadow: e(%("%s", @inset)) @ox @oy @blur e(%("%s", @spread))  e(%("%s", @color));  
+	box-shadow: e(%("%s", @inset)) @ox @oy @blur e(%("%s", @spread))  e(%("%s", @color));
+}
+
+
+.text-shadow(@ox: 3px, @oy: 3px, @blur: 3px, @color: #000) { 
+   text-shadow: @ox @oy @blur @color;                                                                                   
+}
+
+.gradientV(@start: #ffffff, @end: #cccccc, @img: "placeholder.png") {
+	background-color: @end;
+	background-image: url(@img); 
+	background-repeat: repeat-x;
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @start), color-stop(100%, @end));
+	background-image: -khtml-gradient(linear, left top, left bottom, color-stop(0%, @start), color-stop(100%, @end));
+    background-image: -webkit-linear-gradient(top, @start 0%, @end 100%);
+	background-image: -moz-linear-gradient(top, @start 0%, @end 100%);
+	background-image: -ms-linear-gradient(top, @start 0%, @end 100%);
+	background-image: -o-linear-gradient(top, @start 0%, @end 100%);
+	background-image: linear-gradient(to bottom, @start 0%, @end 100%);
+	filter: %("progid:DXImageTransform.Microsoft.gradient(startColorStr='%d', EndColorStr='%d', GradientType=0)",@start,@end);
+}
+.gradientH(@start: #ffffff, @end: #cccccc, @img: "placeholder.png") {
+	background-color: @end;
+	background-image: url(@img); 
+	background-repeat: repeat-y;
+	background-image: -webkit-gradient(linear, left top, right top, color-stop(0%, @start), color-stop(100%, @end));
+	background-image: -khtml-gradient(linear, left top, right top, color-stop(0%, @start), color-stop(100%, @end));
+    background-image: -webkit-linear-gradient(left, @start 0%, @end 100%);
+	background-image: -moz-linear-gradient(left, @start 0%, @end 100%);
+	background-image: -ms-linear-gradient(left, @start 0%, @end 100%);
+	background-image: -o-linear-gradient(left, @start 0%, @end 100%);
+	background-image: linear-gradient(to right, @start 0%, @end 100%);
+	filter: %("progid:DXImageTransform.Microsoft.gradient(startColorStr='%d', EndColorStr='%d', GradientType=1)",@start,@end);
+}
+.gradientD(@start: #ffffff, @end: #cccccc, @deg: 45deg, @img: "placeholder.png") {
+	background-color: @end;
+	background-image: url(@img); 
+	background-repeat: none;
+    background-image: -webkit-linear-gradient(@deg, @start, @end); /* Safari 5.1+, Chrome 10+ */  
+    background-image: -moz-linear-gradient(@deg, @start, @end); /* FF 3.6+ */  
+    background-image: -ms-linear-gradient(@deg, @start, @end); /* IE10 */
+    background-image: -o-linear-gradient(@deg, @start, @end); /* Opera 11.10 */
+    background-image: linear-gradient(@deg, @start, @end); /* the standard */
+}

@@ -1,0 +1,49 @@
+@import url("http://fast.fonts.com/t/1.css?apiType=css&projectid=fbda8ea7-da7f-4d24-ba81-7a18e7017815");
+/**
+ * Copyright (c) 2012 Giovanni Battista Brescia.
+ * Dual licensed under MIT and GPL3.
+ * http://www.opensource.org/licenses/mit-license.php
+ * http://www.opensource.org/licenses/GPL-3.0
+ * This code and information is provided "as is" without warranty of any
+ * kind, either expressed or implied, including but not limited to the
+ * implied warranties of merchantability and/or fitness for a particular
+ * purpose.
+ * @author Giovanni Battista Brescia
+ * @email skill83(at)gmail(dot)com
+ * @email gianni(at)ilcroccante(dot)it
+ */
+@font-face {
+  font-family: 'Champagne&LimousinesBdIt';
+  src: url('../sm_font/champagne__limousines_bold_italic-webfont.eot');
+  src: url('../sm_font/champagne__limousines_bold_italic-webfont.eot?#iefix') format('embedded-opentype'), url('../sm_font/champagne__limousines_bold_italic-webfont.woff') format('woff'), url('../sm_font/champagne__limousines_bold_italic-webfont.ttf') format('truetype'), url('../sm_font/champagne__limousines_bold_italic-webfont.svg#Champagne&LimousinesBdIt') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Champagne&LimousinesItalic';
+  src: url('../sm_font/champagne__limousines_italic-webfont.eot');
+  src: url('../sm_font/champagne__limousines_italic-webfont.eot?#iefix') format('embedded-opentype'), url('../sm_font/champagne__limousines_italic-webfont.woff') format('woff'), url('../sm_font/champagne__limousines_italic-webfont.ttf') format('truetype'), url('../sm_font/champagne__limousines_italic-webfont.svg#Champagne&LimousinesItalic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Champagne&LimousinesBold';
+  src: url('../sm_font/champagne__limousines_bold-webfont.eot');
+  src: url('../sm_font/champagne__limousines_bold-webfont.eot?#iefix') format('embedded-opentype'), url('../sm_font/champagne__limousines_bold-webfont.woff') format('woff'), url('../sm_font/champagne__limousines_bold-webfont.ttf') format('truetype'), url('../sm_font/champagne__limousines_bold-webfont.svg#Champagne&LimousinesBold') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Champagne&LimousinesRegular';
+  src: url('../sm_font/champagne__limousines-webfont.eot');
+  src: url('../sm_font/champagne__limousines-webfont.eot?#iefix') format('embedded-opentype'), url('../sm_font/champagne__limousines-webfont.woff') format('woff'), url('../sm_font/champagne__limousines-webfont.ttf') format('truetype'), url('../sm_font/champagne__limousines-webfont.svg#Champagne&LimousinesRegular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'HelveticaNeueW01-57Cn';
+  src: url('../sm_font/ecaa98fe-425a-42de-846b-c235f0dbc449.eot');
+  src: url('../sm_font/ecaa98fe-425a-42de-846b-c235f0dbc449.eot?#iefix') format('embedded-opentype'), url('../sm_font/842088d0-1ae2-40d0-8561-3c95761ba7a6.woff') format('woff'), url('../sm_font/c74505d5-13e8-47ed-94a8-630aab4da3e6.ttf') format('truetype'), url('../sm_font/6cd480d1-47d0-48b4-86bd-283db2cb9235.svg#6cd480d1-47d0-48b4-86bd-283db2cb9235') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

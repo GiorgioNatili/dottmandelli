@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/subversion/!svn/ver/7/wp-content/plugins/wordpress-seo/inc
+END
+wpseo-non-ajax-functions.php
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/subversion/!svn/ver/7/wp-content/plugins/wordpress-seo/inc/wpseo-non-ajax-functions.php
+END
+wpseo-functions.php
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/subversion/!svn/ver/7/wp-content/plugins/wordpress-seo/inc/wpseo-functions.php
+END
+class-rewrite.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/subversion/!svn/ver/7/wp-content/plugins/wordpress-seo/inc/class-rewrite.php
+END
+class-sitemaps.php
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/subversion/!svn/ver/7/wp-content/plugins/wordpress-seo/inc/class-sitemaps.php
+END

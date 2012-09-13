@@ -1,0 +1,54 @@
+/**
+ * Copyright (c) 2012 Giovanni Battista Brescia.
+ * Dual licensed under MIT and GPL3.
+ * http://www.opensource.org/licenses/mit-license.php
+ * http://www.opensource.org/licenses/GPL-3.0
+ * This code and information is provided "as is" without warranty of any
+ * kind, either expressed or implied, including but not limited to the
+ * implied warranties of merchantability and/or fitness for a particular
+ * purpose.
+ * @author Giovanni Battista Brescia
+ * @email skill83(at)gmail(dot)com
+ * @email gianni(at)ilcroccante(dot)it
+ */
+ /////////////////
+// Semantic.gs // for LESS: http://lesscss.org/ ------------1.1-------------
+/////////////////
+
+
+// Defaults which you can freely override
+@column-width: 60;
+@gutter-width: 20;
+@columns: 12;
+
+// Utility variable — you should never need to modify this
+@_gridsystem-width: (@column-width*@columns) + (@gutter-width*@columns) * 1px;
+
+// Set @total-width to 100% for a fluid layout
+@total-width: @_gridsystem-width;
+
+
+//////////
+// GRID //
+//////////
+
+body {
+	width: 100%;
+	.innerclearfix;
+}
+
+.row(@columns:@columns) {
+	display: inline-block;
+	width: @total-width*((@gutter-width + @_gridsystem-width)/@_gridsystem-width);
+	margin: 0 @total-width*(((@gutter-width*.5)/@_gridsystem-width)*-1);
+	.innerclearfix;
+}
+.column(@x,@columns:@columns) {
+	display: inline;
+	float: left;
+	width: @total-width*((((@gutter-width+@column-width)*@x)-@gutter-width) / @_gridsystem-width);
+	margin: 0 @total-width*((@gutter-width*.5)/@_gridsystem-width);
+}
+.offset(@offset:1) {
+	margin-left: (@gutter-width+@column-width)*@offset + @total-width*((@gutter-width*.5)/@_gridsystem-width);    
+}

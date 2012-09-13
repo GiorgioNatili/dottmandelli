@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/subversion/!svn/ver/7/wp-content/plugins/mail-list/includes
+END
+front_form.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/subversion/!svn/ver/7/wp-content/plugins/mail-list/includes/front_form.php
+END
+csv_export.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/subversion/!svn/ver/7/wp-content/plugins/mail-list/includes/csv_export.php
+END
+credits.php
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/subversion/!svn/ver/7/wp-content/plugins/mail-list/includes/credits.php
+END
+menu_data.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/subversion/!svn/ver/7/wp-content/plugins/mail-list/includes/menu_data.php
+END
+menu_send.php
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/subversion/!svn/ver/7/wp-content/plugins/mail-list/includes/menu_send.php
+END
+menu_import.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/subversion/!svn/ver/7/wp-content/plugins/mail-list/includes/menu_import.php
+END
+menu_options.php
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/subversion/!svn/ver/7/wp-content/plugins/mail-list/includes/menu_options.php
+END
+activation.php
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/subversion/!svn/ver/7/wp-content/plugins/mail-list/includes/activation.php
+END
+head.php
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/subversion/!svn/ver/7/wp-content/plugins/mail-list/includes/head.php
+END
+unsubscribe.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/subversion/!svn/ver/7/wp-content/plugins/mail-list/includes/unsubscribe.php
+END
+menu_export.php
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/subversion/!svn/ver/7/wp-content/plugins/mail-list/includes/menu_export.php
+END
