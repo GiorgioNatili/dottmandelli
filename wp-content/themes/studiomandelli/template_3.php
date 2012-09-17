@@ -51,7 +51,7 @@ $page_light_box_image_third = get_post_meta( $post->ID, 'studio_mandelli_page_li
 	?>
 <?php endwhile; ?>
 
-<div id="main" class="theme-3" role="main">
+<div id="main" role="main">
 	<div class="wrapper">
 		<section class="t3-upper-content clearfix">
 			<header class="header">
@@ -118,6 +118,8 @@ $page_light_box_image_third = get_post_meta( $post->ID, 'studio_mandelli_page_li
 				<!--</a>-->
 			</div>
 		</section>
+    
+    
 		<section class="t2-boxes large clearfix">
 		<?php 
 			for($i = 0; $i < count($writeTermList); ++$i){
@@ -132,7 +134,7 @@ $page_light_box_image_third = get_post_meta( $post->ID, 'studio_mandelli_page_li
 				$htmlBox .= '<div class="d-text">';
 				$htmlBox .= $writeTermList[$i][3];
 				$htmlBox .= '</div>';
-				$htmlBox .= '<a class="more" href="'.$writeTermList[$i][4].'">LEGGI</a>';
+				$htmlBox .= '<div class="leggi"><a class="more" href="'.site_url().$writeTermList[$i][4].'">LEGGI</a></div>';
 				$htmlBox .= '</div>';
 				$htmlBox .= '</div>';
 				echo $htmlBox;

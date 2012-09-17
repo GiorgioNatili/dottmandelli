@@ -170,6 +170,40 @@ $meta_boxes[] = array(
 );
 ***/
 
+
+$meta_boxes[] = array(
+	'id'    => 'sottotitolo',
+	'title' => 'Sottotitolo',
+	'pages' => array( 'page' ),
+
+	'fields' => array(
+		// TEXT
+		array(
+			'name' => 'Sottotitolo',
+			'id' => $prefix . 'sottotitolo',
+			'type'  => 'text',
+		)
+	)
+);
+//
+$meta_boxes[] = array(
+	'id'    => 'overwrite_gal',
+	'title' => 'L\'immagine in evidenza deve sostituire la galleria? (Valido per le pagine che hanno una galleria)',
+	'pages' => array( 'page' ),
+
+	'fields' => array(
+		array(
+			'name' => 'Sovrascrivi la galleria con la "featured image"',
+			'id'   => "{$prefix}overwrite_gallery",
+      'type' => 'select',
+      'options' => array(
+				'no' => 'No',
+        'si' => 'Si',
+        )
+      ),
+	)
+);
+
 // 2nd meta box
 $meta_boxes[] = array(
 	'id'    => 'blog_post_gallery',
@@ -229,6 +263,134 @@ $meta_boxes[] = array(
 );
 
 $meta_boxes[] = array(
+	'id'    => 'orari',
+	'title' => 'Orari di apertura',
+	'pages' => array( 'page' ),
+
+	'fields' => array(
+		// TEXT
+		array(
+			'name' => 'Lunedi - mattina',
+			'id' => $prefix . 'lun_open',
+			'type'  => 'text',
+		),
+		array(
+			'name' => 'Lunedi - pomeriggio',
+			'id' => $prefix . 'lun_close',
+			'type'  => 'text',
+		),
+    array(
+			'name' => 'martedi - mattina',
+			'id' => $prefix . 'mar_open',
+			'type'  => 'text',
+		),
+		array(
+			'name' => 'Martedi - pomeriggio',
+			'id' => $prefix . 'mar_close',
+			'type'  => 'text',
+		),
+    array(
+			'name' => 'Mercoledi - mattina',
+			'id' => $prefix . 'mer_open',
+			'type'  => 'text',
+		),
+		array(
+			'name' => 'Mercoledi - pomeriggio',
+			'id' => $prefix . 'mer_close',
+			'type'  => 'text',
+		),
+    array(
+			'name' => 'Giovedi - mattina',
+			'id' => $prefix . 'gio_open',
+			'type'  => 'text',
+		),
+		array(
+			'name' => 'Giovedi - pomeriggio',
+			'id' => $prefix . 'gio_close',
+			'type'  => 'text',
+		),
+    array(
+			'name' => 'Venerdi - mattina',
+			'id' => $prefix . 'ven_open',
+			'type'  => 'text',
+		),
+		array(
+			'name' => 'Venerdi - pomeriggio',
+			'id' => $prefix . 'ven_close',
+			'type'  => 'text',
+		),
+	)
+);
+
+$meta_boxes[] = array(
+	'id'    => 'contact',
+	'title' => 'Contatti o Mission',
+	'pages' => array( 'page' ),
+
+	'fields' => array(
+    array(
+			'name' => 'Titolo 01',
+			'id' => $prefix . 'contact01_title',
+			'type'  => 'text',
+		),
+		// TEXT
+		array(
+			'name' => 'Testo 01',
+			'id'   => "{$prefix}contact01",
+			'type' => 'textarea',
+			'cols' => '40',
+			'rows' => '8',
+		),
+     array(
+			'name' => 'Titolo 02',
+			'id' => $prefix . 'contact02_title',
+			'type'  => 'text',
+		),
+		// TEXTAREA
+		array(
+			'name' => 'Testo 02',
+			'id'   => "{$prefix}contact02",
+			'type' => 'textarea',
+			'cols' => '40',
+			'rows' => '8',
+		),
+    array(
+			'name' => 'Titolo 03',
+			'id' => $prefix . 'contact03_title',
+			'type'  => 'text',
+		),
+		// TEXTAREA
+		array(
+			'name' => 'Testo 03',
+			'id'   => "{$prefix}contact03",
+			'type' => 'textarea',
+			'cols' => '40',
+			'rows' => '8',
+		),
+     array(
+			'name' => 'Titolo 04',
+			'id' => $prefix . 'contact04_title',
+			'type'  => 'text',
+		),
+		// TEXTAREA
+		array(
+			'name' => 'Testo 04',
+			'id'   => "{$prefix}contact04",
+			'type' => 'textarea',
+			'cols' => '40',
+			'rows' => '8',
+		),
+    		// IMAGE UPLOAD
+		array(
+			'name' => 'Prima immagine',
+			'id'   => "{$prefix}image_contact",
+			'type' => 'plupload_image',
+			'max_file_uploads' => 1,
+		),
+	)
+);
+
+$meta_boxes[] = array(
 	'id'    => 'page_light_box',
 	'title' => 'Widget centrale a tre colonne con testo a sinistra e lightbox (Templates 3, 3.1 e 7)',
 	'pages' => array( 'page' ),
@@ -247,6 +409,26 @@ $meta_boxes[] = array(
 			'type' => 'textarea',
 			'cols' => '40',
 			'rows' => '8',
+		),
+    // TEXT
+		array(
+			'name' => 'Titolo secondo box',
+			'id' => $prefix . 'light_box_title_second',
+			'type'  => 'text',
+		),
+		// TEXTAREA
+		array(
+			'name' => 'Testo secondo box',
+			'id'   => "{$prefix}light_box_text_second",
+			'type' => 'textarea',
+			'cols' => '40',
+			'rows' => '8',
+		),
+      // TEXT
+		array(
+			'name' => 'Testo a destra sotto le immagini',
+			'id' => $prefix . 'light_box_title_third',
+			'type'  => 'text',
 		),
 		// TEXT
 		array(
@@ -332,6 +514,34 @@ $meta_boxes[] = array(
 	)
 );
 
+
+
+$meta_boxes[] = array(
+	'id'    => 'three_column_boxes',
+	'title' => 'Testo a tre colonne (valido per i template con 3 box)',
+	'pages' => array( 'page' ),
+
+	'fields' => array(
+		array(
+			'name' => 'Attivare il testo a tre colonne',
+			'id'   => "{$prefix}activate_text",
+      'type' => 'select',
+      'options' => array(
+				'no' => 'No',
+        'si' => 'Si',
+        )
+      ),
+    // TEXTAREA
+		array(
+			'name' => 'Testo',
+			'id'   => "{$prefix}optional_text",
+			'type' => 'textarea',
+			'cols' => '40',
+			'rows' => '8',
+		)
+	)
+);
+
 $meta_boxes[] = array(
 	'id'    => 'staff_data',
 	'title' => 'Scheda del membro dello staff',
@@ -348,13 +558,15 @@ $meta_boxes[] = array(
     array(
 			'name' => 'Immagine',
 			'id'   => $prefix."staff_image",
-			'type' => 'image',
+			'type' => 'plupload_image',
+      'max_file_uploads' => 1,
 		),
     //FILE
     array(
 			'name' => 'Curriculum',
 			'id'   => $prefix."staff_file",
       'type' => 'file',
+      'max_file_uploads' => 1,
 		),
     //CATEGORIA
     array(
@@ -369,7 +581,65 @@ $meta_boxes[] = array(
 		)
 	)
 );
-		
+
+
+$meta_boxes[] = array(
+	'id'    => 'disciplina_data',
+	'title' => 'Disciplina',
+	'pages' => array( 'disciplina' ),
+
+	'fields' => array(
+   // IMMAGINE GRANDE
+   array(
+			'name' => 'Immagine grande',
+			'id'   => $prefix."disciplina_big",
+			'type' => 'plupload_image',
+      'max_file_uploads' => 1,
+		),
+    array(
+			'name' => 'Secondo titolo',
+			'id' => $prefix . 'second_title',
+			'type'  => 'text',
+		),
+    array(
+			'name' => 'Titolo testo laterale',
+			'id' => $prefix . 'side_title',
+			'type'  => 'text',
+		),
+		// TEXT
+		array(
+			'name' => 'Testo laterale',
+			'id'   => "{$prefix}side_text",
+			'type' => 'textarea',
+			'cols' => '20',
+			'rows' => '4',
+		),
+    //IMAGE
+    array(
+			'name' => 'Immagine 01',
+			'id'   => $prefix."disciplina_image01",
+			'type' => 'plupload_image',
+      'max_file_uploads' => 1,
+		),
+    array(
+			'name' => 'Sottotitolo immagine 01',
+			'id' => $prefix . 'disciplina_subt01',
+			'type'  => 'text',
+		),
+    array(
+			'name' => 'Immagine 02',
+			'id'   => $prefix."disciplina_image02",
+			'type' => 'plupload_image',
+      'max_file_uploads' => 1,
+		),
+    array(
+			'name' => 'Sottotitolo immagine 02',
+			'id' => $prefix . 'disciplina_subt02',
+			'type'  => 'text',
+		),
+	)
+);		
+
 /***
 // 3rd meta box
 $meta_boxes[] = array(

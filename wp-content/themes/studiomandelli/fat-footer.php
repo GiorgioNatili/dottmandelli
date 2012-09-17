@@ -28,10 +28,10 @@
 					</div>
 				</div>
 			</article>
-			<div class="follow-us">
-				<a href="#" class="footer_fb ir">Facebook</a>
-				<a href="#" class="footer_tt ir">Twitter</a>
-			</div>
+<div class="sharesocial-footer harmonia uppercase bold grey-text fleft"> seguici su &nbsp;
+<a href='http://www.facebook.com/' target="_blank" rel="nofollow"><img alt='Facebook'src='<?php print site_url(); ?>/wp-content/themes/studiomandelli/sm_img/fb_orange.png'/></a>
+<a href="http://twitter.com/" target="_blank" rel="nofollow"><img alt='Twitter'src='<?php print site_url(); ?>/wp-content/themes/studiomandelli/sm_img/tw_orange.png'/></a>
+</div>
 		</div>
 		<div class="right_content">
 			<h4>CONTATTACI <span>hai dubbi o domande? vuoi inviarci la tua opnione?</span></h4>

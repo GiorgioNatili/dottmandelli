@@ -1,6 +1,32 @@
 <?php 
 	add_action( 'after_setup_theme', 'my_child_theme_setup' );
+  /*Gestione dei labels*/
+  function custom_admin_js() {
+  global $pagenow;
+  $var=$_GET['taxonomy'];
+  $mySiteUrl = get_stylesheet_directory_uri();
+    if(($pagenow=='edit-tags.php' && ($var=='block_home' || $var=='block_templates')) || ($pagenow=='post.php') ){
+      echo '<script src="'.$mySiteUrl.'/sm_js/pages/replace.js"></script>' . "\n";
+      //echo '<script>alert("'.$pagenow.$var.'")</script>' . "\n";
+    }
+  
+}
+add_action('admin_footer', 'custom_admin_js');
+  
 	function my_child_theme_setup() {
+    // Add specific CSS class by filter
+
+  function my_class_names($classes) {
+	// add 'class-name' to the $classes array
+  $random_bg=array('bg0','bg1','bg2','bg3','bg4','bg5','bg6','bg7','bg8','bg9','bg10','bg11','bg12','bg13',);
+  $bg=array_rand($random_bg);
+  
+	$classes[] = $random_bg[$bg];
+	// return the $classes array
+	return $classes;
+  }
+  add_filter('body_class','my_class_names');
+  
 		function header_css() {
 			$mySiteUrl = get_stylesheet_directory_uri();
 			echo '<link rel="icon" href="'.$mySiteUrl.'/sm_img/favicon.ico" />' . "\n";
@@ -13,6 +39,10 @@
 			echo '<!--[if lt IE 7 ]><script defer src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script><script defer>window.attachEvent(\'onload\',function(){CFInstall.check({mode:\'overlay\'})})</script><![endif]-->' . "\n";
 			if ( !is_admin() && is_page_template('template_2.php') ){
 				echo '<script src="'.$mySiteUrl.'/sm_js/libs/css3-multi-column.js"></script>' . "\n";
+			}
+      if ( !is_admin() && is_page_template('template_contatti.php') ){
+				echo '<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>' . "\n";
+        echo '<script src="'.$mySiteUrl.'/sm_js/pages/map_init.js"></script>' . "\n";
 			}
 		}
 		add_action('wp_head', 'header_js');
@@ -28,14 +58,16 @@
 			if ( !is_admin() && is_page_template('homepage.php') ){
 				echo '<script src="'.$mySiteUrl.'/sm_js/pages/homepage.js"></script>' . "\n";
 			}
-			if ( !is_admin() && is_page_template('template_2.php') ){
+			if ( !is_admin() && (is_page_template('template_2.php') || is_page_template('template_organico.php') || is_page_template('template_ambulatorio.php'))){
 				echo '<script src="'.$mySiteUrl.'/sm_js/libs/jquery.cycle.all.js"></script>' . "\n";
 				echo '<script src="'.$mySiteUrl.'/sm_js/pages/template_2.js"></script>' . "\n";
 			}
+      
       if ( !is_admin() && ('post' == get_post_type()) ){
       	echo '<script src="'.$mySiteUrl.'/sm_js/libs/jquery.cycle.all.js"></script>' . "\n";
 				echo '<script src="'.$mySiteUrl.'/sm_js/pages/post.js"></script>' . "\n";
       }
+      
 			echo "<script>var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';s.parentNode.insertBefore(g,s)}(document,'script'));</script>" . "\n";
 		}
 		add_action('wp_footer', 'footer_js');
@@ -257,11 +289,26 @@
                 'has_archive' => true
                 )
         );
+        register_post_type( 'disciplina',
+                array(
+                        'labels' => array(
+                                'name' => __( 'Disciplina' ),
+                                'singular_name' => __( 'Disciplina' )
+                        ),
+                'public' => true,
+                'has_archive' => true
+                )
+        );
   }
   
   add_theme_support( 'post-thumbnails' );
   add_image_size( 'small-550', '550', '315', true );
   add_image_size( 'small-145', '145', '85', true );    
+  add_image_size( 'big-mission', '870', '620', true );   
+  add_image_size( 'big-stripe', '1170', '370', true );
+  add_image_size( 'medium-side', '400', '200', true );
+  add_image_size( 'page-gallery', '765', '302', true );
+  add_image_size( 'lightbox-thumb', '270', '160', true );
   
 		include 'demo.php';
 	}

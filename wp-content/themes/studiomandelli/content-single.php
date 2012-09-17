@@ -68,12 +68,11 @@ $prefix = 'studio_mandelli_';
   }
 } 
 ?> </div>
-
+<div class="sharesocial harmonia uppercase azure-text fleft"> Condividi su: 
+<a href='http://www.facebook.com/share.php?u=<?php print get_permalink(); ?>' target="_blank"><img alt='Facebook'src='<?php print site_url(); ?>/wp-content/themes/studiomandelli/sm_img/fb.png'/></a>
+<a href="http://twitter.com/share?url=<?php print get_permalink(); ?>&text=<?php print the_title(); ?>&count=horizontal" target="_blank" rel="nofollow"><img alt='Twitter'src='<?php print site_url(); ?>/wp-content/themes/studiomandelli/sm_img/tw.png'/></a>
+</div>
 	</div><!-- .entry-content -->
 
 </article><!-- #post-<?php the_ID(); ?> -->
 
-<div class="sharesocial helvetica uppercase azure-text fleft"> Condividi su: 
-<a href='http://www.facebook.com/share.php?u=<?php print get_permalink(); ?>'><img alt='Facebook'src='<?php print site_url(); ?>/wp-content/themes/studiomandelli/sm_img/fb.png'/></a>
-<a href="http://twitter.com/share?url=<?php print get_permalink(); ?>&text=<?php print the_title(); ?>&count=horizontal" target="_blank" rel="nofollow"><img alt='Twitter'src='<?php print site_url(); ?>/wp-content/themes/studiomandelli/sm_img/tw.png'/></a>
-</div>

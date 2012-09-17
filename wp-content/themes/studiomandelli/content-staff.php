@@ -35,7 +35,7 @@ $prefix = 'studio_mandelli_';
    
   </div>
 	<div class="single-entry-content helvetica">
-    <div class="staff-title helvetica uppercase petrol-text"><h2><?php the_title(); ?></h2></div>
+    <div class="staff-title harmonia uppercase petrol-text"><h2><?php the_title(); ?></h2></div>
 		<?php the_content(); ?>
     <?php
       $i=0;
@@ -43,7 +43,7 @@ $prefix = 'studio_mandelli_';
       // Evito di mettere più di una immagine anche se l'utente ne inserisce più di una
       if ($i==0) {
         $file = $metafile['url'];
-        print "<div class='staff-file'><a href='".$file."' /><img src='".site_url()."/wp-content/themes/studiomandelli/sm_img/download.png' /></a></div>";
+        print "<div class='staff-file'><a href='".$file."' target='_blank'/><img src='".site_url()."/wp-content/themes/studiomandelli/sm_img/download.png' /></a></div>";
         }
     $i++;
     }
