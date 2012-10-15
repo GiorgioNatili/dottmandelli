@@ -1,15 +1,10 @@
 <?php
 /**
- * Template Name: SM Template 07 (Media, colonne e due blocchi)
+ * Template Name: SM Template 3 (Figli Struttura)
+ * Description: Full-with width dynamic post gallery
  */
-
-get_header(); 
-
 $prefix = 'studio_mandelli_';
-$site_url=site_url();
-    $meta_subtitle = rwmb_meta( $prefix.'sottotitolo'); 
-?>
-
+get_header(); ?>
 
 <?php 
 $terms = get_the_terms( $post->ID, 'block_templates' );
@@ -54,6 +49,8 @@ $page_light_box_image_third = rwmb_meta( $prefix.'page_light_box_image_third',$a
 
 $page_sottotitolo = rwmb_meta( $prefix.'sottotitolo');   
 
+	$three_cols_title = get_post_meta( $post->ID, 'studio_mandelli_page_three_cols_title', false );
+	$three_cols_content = get_post_meta( $post->ID, 'studio_mandelli_page_three_cols', false );
 ?>
 <?php while ( have_posts() ) : the_post(); ?>
 	<?php
@@ -65,65 +62,26 @@ $page_sottotitolo = rwmb_meta( $prefix.'sottotitolo');
 	?>
 <?php endwhile; ?>
 
-<div id="main" class="organico" role="main">
-		<section class="t3-upper-content clearfix ml10">
-      
-      <?php $overwrite_gal=rwmb_meta( $prefix.'overwrite_gallery');  
-  //gestisco l'immagine
-  if ($overwrite_gal=='si') { ?>
-  <aside class="t2-feat-image">
-    <div class="feat-image">
-  <?php 
-    $featured_image=wp_get_attachment_image_src(get_post_thumbnail_id( $post->ID ), 'page-gallery');
-     $featured=$featured_image[0];
-    echo "<img src='".$featured."' width='765' height='302' alt=''/>";
-    ?>
-    </div>
-  </aside>
-    <?php 
-    } else { ?>  
-    <aside id="t2-gallery">  
-      <div class="slide-container">
-<?php
- 
-  $images = get_post_meta( $post->ID, 'studio_mandelli_page_gallery_id', false );
-
-  
-	foreach ( $images as $att )
-	{
-	    // Get image's source based on size, can be 'thumbnail', 'medium', 'large', 'full' or registed post thumbnails sizes
-	    $src = wp_get_attachment_image_src( $att, 'page-gallery' );
-	    $srcs = $src[0];
-	    //$srcw = $src[1];
-	    //$srch = $src[2];
-	    //$ratio = 680/$src[1];
-	    //$nh=$src[2]*$ratio;
-	    // Show image
-	    echo "<img src='".$srcs."' width='765' height='302' alt=''/>";
-	}
-  
-   $featured_image=wp_get_attachment_image_src($post->ID, 'page-gallery');
-	
-?>
-				</div>
-			</aside>
-      <?php } // fine gestione featured/gallery
-      
-      	$three_cols_title = get_post_meta( $post->ID, 'studio_mandelli_page_three_cols_title', false );
-	$three_cols_content = get_post_meta( $post->ID, 'studio_mandelli_page_three_cols', false );
-      ?>
-			<article class="content ml30">
-        <header class="page-entry-header">
-          <h2 class="single-entry-title harmonia violet-text"><?php print the_title(); ?></h2>
-        </header>
-        <div class="harmonia biggerplus-text violet-text subtitle"><h3><?php print $meta_subtitle; ?></h3></div>
+<div id="main" class="strutturamain" role="main">
+	<div class="wrapper">
+		<section class="t3-upper-content clearfix">
+			<header class="header">
+				<h2 class="orange-text"><?php echo $page_title; ?></h2>
+				<a class="single-entry-back-link" href="<?php print site_url(); ?>/ambulatorio"> <img src="<?php print site_url(); ?>/wp-content/themes/studiomandelli/sm_img/back_ambulatorio.png" /></a>
+			</header>
+			<article class="content">
 				<div class="d-text helvetica normal-text">
 					<?php echo $page_content; ?>
 				</div>
 			</article>
-
+			<aside id="t3-feat-image">
+				<div>
+					<?php
+						echo "<img src='".$srcs."' width='765' height='302' alt=''/>";
+					?>
+				</div>
+			</aside>
 		</section>
-    
 		<section class="lights clearfix ">
       <div class="mini-textbox fleft  ">
 			<h3 class="uppercase mini-title harmonia bold"><?php print $page_light_box_title_left; ?></h3>
@@ -137,7 +95,7 @@ $page_sottotitolo = rwmb_meta( $prefix.'sottotitolo');
       $i=0;
       foreach ($page_light_box_image_first as $img) { 
         if ($i==0){?>
-          <a href="<?php print $img['full_url']; ?>" rel="lightbox"><img src="<?php print $img['url']; ?>" title="<?php print $page_light_box_text_first; ?>"/></a>
+          <a href="<?php print $img['full_url']; ?>" rel="lightbox"><img src="<?php print $img['url']; ?>" title="<?php print $page_light_box_text_first; ?>" width="270" height="160"/></a>
           <?php }
           $i++;} ?>
 			<div class="d-text harmonia uppercase">
@@ -150,7 +108,7 @@ $page_sottotitolo = rwmb_meta( $prefix.'sottotitolo');
       $i=0;
       foreach ($page_light_box_image_second as $img) { 
         if ($i==0){?>
-          <a href="<?php print $img['full_url']; ?>" rel="lightbox"><img src="<?php print $img['url']; ?>" title="<?php print $page_light_box_text_second; ?>"/></a>
+          <a href="<?php print $img['full_url']; ?>" rel="lightbox"><img src="<?php print $img['url']; ?>" title="<?php print $page_light_box_text_second; ?>" width="270" height="160"/></a>
           <?php }
           $i++;} ?>
 			<div class="d-text harmonia uppercase">
@@ -163,7 +121,7 @@ $page_sottotitolo = rwmb_meta( $prefix.'sottotitolo');
       $i=0;
       foreach ($page_light_box_image_third as $img) { 
         if ($i==0){?>
-          <a href="<?php print $img['full_url']; ?>" rel="lightbox"><img src="<?php print $img['url']; ?>" title="<?php print $page_light_box_text_third; ?>"/></a>
+          <a href="<?php print $img['full_url']; ?>" rel="lightbox"><img src="<?php print $img['url']; ?>" title="<?php print $page_light_box_text_third; ?>" width="270" height="160"/></a>
           <?php }
           $i++;} ?>
 			<div class="d-text harmonia uppercase">
@@ -171,20 +129,19 @@ $page_sottotitolo = rwmb_meta( $prefix.'sottotitolo');
 			</div>
       </div>
 		</section>
-    <!-- box opzionale-->
     <?php 
-    
-    $activate_3col=rwmb_meta( $prefix.'activate_text');
-    $optional_3col=rwmb_meta( $prefix.'optional_text');
-    
-    if ($activate_3col=='si') { ?>
-    <section class="t2-three-col-widget optional-box clearfix">
+    $titolo=trim($three_cols_title[0]);
+    $contenuto=trim($three_cols_content[0]);
+    if ($contenuto!='') { ?>
+    <section class="t2-three-col-widget optional-box clearfix" style="padding-bottom:20px;">
+			<h3><?php echo $three_cols_title[0]; ?></h3>
+      
 			<div class="d-text helvetica">
-				<?php 
-        $strlen=strlen($optional_3col);
+      <?php 
+        $strlen=strlen($three_cols_content[0]);
         $strchunk=$strlen/3;
         $intstr=intval($strchunk)+1;
-        $column=str_split($optional_3col,$intstr);
+        $column=str_split($three_cols_content[0],$intstr);
         ?>
         <div class="text-column">
         <?php print $column[0];?>
@@ -201,35 +158,19 @@ $page_sottotitolo = rwmb_meta( $prefix.'sottotitolo');
 		</section>
     <?php } ?>
     
-    <div class="boxheader harmonia bold normal-text">
-      <div class="halfless fleft pink-text uppercase" style="padding-left:10px;"><?php print $page_light_box_title_big; ?></div>
-      <div class="halfless fleft tright uppercase brown-text"style="padding-right:10px;"><?php print $page_light_box_title_last; ?></div>
-    </div>
-		<section class="t2-boxes kisio clearfix">
-		<div class="box first fleft box-text helvetica normal-text justify">
-      
-        <?php print $page_light_box_text_big; ?>
-      
-    </div>
-    
-    <?php 
-    $first='first-box';
-    $last='last-box';
-    
-    
-    
+		<section class="t2-boxes-sicurezza clearfix">
+		<?php 
 			for($i = 0; $i < count($writeTermList); ++$i){
-        if ($i==5 || $i==2){ $htmlBox = '<div class="box '.$first.' ';} 
-        else if ($i==1 || $i==4) { $htmlBox = '<div class="box '.$last.' ';} 
-        else{ $htmlBox = '<div class="box '; }
       
-        $htmlBox .= $writeTermList[$i][0];
+        if ($i==0){$first='ml0';}
+				$htmlBox = '<div class="box '.$first.' ';
+				$htmlBox .= $writeTermList[$i][0];
 				$htmlBox .= '">';
 				$htmlBox .= '<div class="box-icon">';
 				$htmlBox .= '<img src="'.$writeTermList[$i][1].'" alt="" width="104" height="70"/>';
 				$htmlBox .= '</div>';
 				$htmlBox .= '<div class="box-container">';
-				$htmlBox .= '<h4 class="harmonia">'.$writeTermList[$i][2].'</h4>';
+				$htmlBox .= '<h4>'.$writeTermList[$i][2].'</h4>';
 				$htmlBox .= '<div class="d-text">';
 				$htmlBox .= $writeTermList[$i][3];
 				$htmlBox .= '</div>';
@@ -240,6 +181,7 @@ $page_sottotitolo = rwmb_meta( $prefix.'sottotitolo');
 			}
 		?>
 		</section>
+	</div>
 </div>
 
 <?php get_footer(); ?>

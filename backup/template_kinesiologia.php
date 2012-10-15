@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: SM Template 07 (Media, colonne e due blocchi)
+ * Template Name: Template KINESIOLOGIA
  */
 
 get_header(); 

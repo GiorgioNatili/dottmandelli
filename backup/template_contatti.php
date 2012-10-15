@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: SM Template 09 (Contatti)
+ * Template Name: Template contatti
  */
 
 get_header(); 

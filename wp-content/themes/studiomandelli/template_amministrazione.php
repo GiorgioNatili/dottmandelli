@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Template staff: amministrazione
+ * Template Name: SM Template 05.1 (Aggregatore amministrazione)
  */
 
 get_header(); 

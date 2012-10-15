@@ -1,13 +1,13 @@
 <?php
 /**
- * Template Name: SM Template 05.2 (Aggregatore assistenti)
+ * Template Name: Template staff: operatori
  */
 
 get_header(); 
 $prefix = 'studio_mandelli_';
 
 
-query_posts( 'post_type=staff&meta_key=studio_mandelli_staff_categoria&meta_value=category03'); 
+query_posts( 'post_type=staff&meta_key=studio_mandelli_staff_categoria&meta_value=category01'); 
 ?>
   <div id="main" class="staff">
   <header class="staff-entry-header">

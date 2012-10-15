@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: SM Template 05.2 (Aggregatore assistenti)
+ * Template Name: Template staff: assistenza
  */
 
 get_header(); 

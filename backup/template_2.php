@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: SM Template 11 (Tre colonne immagine singola)
+ * Template Name: SM Template 2 (Ambulatorio) [Da buttare]
  * Description: Full-with width dynamic post gallery
  */
 
@@ -55,8 +55,8 @@ if ( $terms && ! is_wp_error( $terms ) ){
 				</div>
 			</aside>
 			<article class="content">
-				<h2><?php the_title(); ?></h2>
-				<div class="d-text">
+				<h2 class="harmonia"><?php the_title(); ?></h2>
+				<div class="d-text helvetica">
 					<?php while ( have_posts() ) : the_post(); ?>
 
 					<?php the_content(); ?>
@@ -71,7 +71,7 @@ if ( $terms && ! is_wp_error( $terms ) ){
 				<?php echo $three_cols_content[0]; ?>
 			</div>
 		</section>
-		<section class="t2-boxes clearfix">
+		<section class="t2-boxes-ambulatorio clearfix">
 		<?php 
 			for($i = 0; $i < count($writeTermList); ++$i){
 				$htmlBox = '<div class="box ';

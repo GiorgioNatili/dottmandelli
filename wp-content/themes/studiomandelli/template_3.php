@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: SM Template 3 (Figli Struttura)
+ * Template Name: SM Template 03 (Figli Ambulatorio)
  * Description: Full-with width dynamic post gallery
  */
 $prefix = 'studio_mandelli_';

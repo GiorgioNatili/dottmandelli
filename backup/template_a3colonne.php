@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: SM Template 11 (Tre colonne immagine singola)
+ * Template Name: SM Template 2 (Ambulatorio)
  * Description: Full-with width dynamic post gallery
  */
 

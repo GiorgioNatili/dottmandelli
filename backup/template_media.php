@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: SM Template 11 (Tre colonne immagine singola)
+ * Template Name: SM Template 2 (Ambulatorio)
  * Description: Full-with width dynamic post gallery
  */
 
@@ -24,7 +24,7 @@ if ( $terms && ! is_wp_error( $terms ) ){
 	}
 }
 ?>
-<div id="main" role="main">
+<div id="main" class="theme-2" role="main">
 	<div class="wrapper">
 		<section class="t2-upper-content clearfix">
 			<aside id="t2-gallery">

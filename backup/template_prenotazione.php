@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: SM Template 06 (Prenotazione)
+ * Template Name: Template PRENOTAZIONE
  * Description: Full-with width dynamic post gallery
  */
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: SM Template 10 (Immagine e testo)
+ * Template Name: Template mission
  */
 
 get_header(); 

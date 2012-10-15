@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: SM Template 01 (Home)
+ * Template Name: SM Template 1 (Home)
  * Description: Full-with width dynamic post gallery
  */
 

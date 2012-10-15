@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Template staff: operatori
+ * Template Name: SM Template 05.0 (Aggregatore operatori)
  */
 
 get_header(); 

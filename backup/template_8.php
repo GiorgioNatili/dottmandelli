@@ -1,13 +1,13 @@
 <?php
 /**
- * Template Name: SM Template 04 (Organico)
+ * Template Name: SM Template 8 (Servizi)
  * Description: Full-with width dynamic post gallery
  */
 
 get_header(); 
 
 $prefix = 'studio_mandelli_';
-    $page_sottotitolo = rwmb_meta( $prefix.'sottotitolo');   
+
     $meta_subtitle = rwmb_meta( $prefix.'sottotitolo'); 
 ?>
 
@@ -57,67 +57,29 @@ $page_light_box_image_third = get_post_meta( $post->ID, 'studio_mandelli_page_li
 	?>
 <?php endwhile; ?>
 
-<div id="main" class="organico" role="main">
-		<section class="t3-upper-content clearfix ml10">
+<div id="main" class="servizimain" role="main">
+	<div class="wrapper">
+		<section class="t3-upper-content clearfix">
       
-           
-<?php $overwrite_gal=rwmb_meta( $prefix.'overwrite_gallery');  
-  //gestisco l'immagine
-  if ($overwrite_gal=='si') { ?>
-  <aside class="t2-feat-image">
-    <div class="feat-image">
-  <?php 
-    $featured_image=wp_get_attachment_image_src(get_post_thumbnail_id( $post->ID ), 'page-gallery');
-     $featured=$featured_image[0];
-    echo "<img src='".$featured."' width='765' height='302' alt=''/>";
-    ?>
-    </div>
-  </aside>
-    <?php 
-    } else { ?>    
-      <aside id="t2-gallery">    
-				<div class="slide-container">
-<?php
- 
-  
-  $images = get_post_meta( $post->ID, 'studio_mandelli_page_gallery_id', false );
-	
-  
-	foreach ( $images as $att )
-	{
-	    // Get image's source based on size, can be 'thumbnail', 'medium', 'large', 'full' or registed post thumbnails sizes
-	    $src = wp_get_attachment_image_src( $att, 'full' );
-	    $srcs = $src[0];
-	    //$srcw = $src[1];
-	    //$srch = $src[2];
-	    //$ratio = 680/$src[1];
-	    //$nh=$src[2]*$ratio;
-	    // Show image
-	    echo "<img src='".$srcs."' width='765' height='302' alt=''/>";
-	}
-  
-   $featured_image=wp_get_attachment_image_src($post->ID, 'full');
-	
-?>
+      <aside id="servizi-feat-image">
+				<div>
+					<?php
+						echo "<img src='".$srcs."' width='765' height='302' alt=''/>";
+					?>
 				</div>
 			</aside>
-<?php } // fine gestione featured/gallery
-$three_cols_title = get_post_meta( $post->ID, 'studio_mandelli_page_three_cols_title', false );
-	$three_cols_content = get_post_meta( $post->ID, 'studio_mandelli_page_three_cols', false );
-
-?>
-			<article class="content ml30">
+			<article class="content">
         <header class="page-entry-header">
-          <h2 class="single-entry-title harmonia blu-text"><?php print the_title(); ?></h2>
+          <h2 class="single-entry-title pink-text harmonia"><?php print the_title(); ?></h2>
         </header>
-        <div class="harmonia biggerplus-text blu-text subtitle"><h3><?php print $meta_subtitle; ?></h3></div>
+        <div class="harmonia biggerplus-text pink-text subtitle"><h3><?php print $meta_subtitle; ?></h3></div>
 				<div class="d-text helvetica normal-text">
 					<?php echo $page_content; ?>
 				</div>
 			</article>
 
 		</section>
-    
+		
      <?php 
     
     $activate_3col=rwmb_meta( $prefix.'activate_text');
@@ -146,7 +108,7 @@ $three_cols_title = get_post_meta( $post->ID, 'studio_mandelli_page_three_cols_t
 			</div>
 		</section>
     <?php } ?>
-		
+    
 		<section class="t2-boxes large clearfix">
 		<?php 
     $first='first-box';
@@ -174,6 +136,7 @@ $three_cols_title = get_post_meta( $post->ID, 'studio_mandelli_page_three_cols_t
 			}
 		?>
 		</section>
+	</div>
 </div>
 
 <?php get_footer(); ?>
