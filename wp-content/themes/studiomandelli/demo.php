@@ -169,379 +169,396 @@ $meta_boxes[] = array(
 	)
 );
 ***/
+global $post;
+	$post_id = $_GET['post'] ? $_GET['post'] : $_POST['post_ID'] ;
+	$template_file = get_post_meta($post_id,'_wp_page_template',TRUE);
 
+if ($template_file!='template_contatti.php' && $template_file!='template_mission.php' && $template_file!='template_prenotazione.php')  {
+  $meta_boxes[] = array(
+    'id'    => 'sottotitolo',
+    'title' => 'Sottotitolo',
+    'pages' => array( 'page' ),
 
-$meta_boxes[] = array(
-	'id'    => 'sottotitolo',
-	'title' => 'Sottotitolo',
-	'pages' => array( 'page' ),
-
-	'fields' => array(
-		// TEXT
-		array(
-			'name' => 'Sottotitolo',
-			'id' => $prefix . 'sottotitolo',
-			'type'  => 'text',
-		)
-	)
-);
-//
-$meta_boxes[] = array(
-	'id'    => 'overwrite_gal',
-	'title' => 'L\'immagine in evidenza deve sostituire la galleria? (Valido per le pagine che hanno una galleria)',
-	'pages' => array( 'page' ),
-
-	'fields' => array(
-		array(
-			'name' => 'Sovrascrivi la galleria con la "featured image"',
-			'id'   => "{$prefix}overwrite_gallery",
-      'type' => 'select',
-      'options' => array(
-				'no' => 'No',
-        'si' => 'Si',
-        )
-      ),
-	)
-);
-
-// 2nd meta box
-$meta_boxes[] = array(
-	'id'    => 'blog_post_gallery',
-	'title' => 'Galleria del Post',
-	'pages' => array( 'post' ),
-
-	'fields' => array(
-		// PLUPLOAD IMAGE UPLOAD (WP 3.3+)
-		array(
-			'name'             => 'Immagini',
-			'desc'             => 'Lista delle Immagini',
-			'id'               => "{$prefix}blog_post_gallery_id",
-			'type'             => 'plupload_image',
-			'max_file_uploads' => 6,
-		)
-	)
-);
-// 2nd meta box
-$meta_boxes[] = array(
-	'id'    => 'page_gallery',
-	'title' => 'Galleria della Pagina',
-	'pages' => array( 'page' ),
-
-	'fields' => array(
-		// PLUPLOAD IMAGE UPLOAD (WP 3.3+)
-		array(
-			'name'             => 'Immagini',
-			'desc'             => 'Lista delle Immagini, dimensioni 765px x 302px',
-			'id'               => "{$prefix}page_gallery_id",
-			'type'             => 'plupload_image',
-			'max_file_uploads' => 6,
-		)
-	)
-);
-
-$meta_boxes[] = array(
-	'id'    => 'page_three_cols',
-	'title' => 'Widget centrale a tre colonne (Templates 2 e 3.1)',
-	'pages' => array( 'page' ),
-
-	'fields' => array(
-		// TEXT
-		array(
-			'name' => 'Titolo widget',
-			'id' => $prefix . 'page_three_cols_title',
-			'type'  => 'text',
-		),
-		// TEXTAREA
-		array(
-			'name' => 'Testo',
-			'id'   => "{$prefix}page_three_cols",
-			'type' => 'textarea',
-			'cols' => '40',
-			'rows' => '8',
-		)
-	)
-);
-
-$meta_boxes[] = array(
-	'id'    => 'orari',
-	'title' => 'Orari di apertura',
-	'pages' => array( 'page' ),
-
-	'fields' => array(
-		// TEXT
-		array(
-			'name' => 'Lunedi - mattina',
-			'id' => $prefix . 'lun_open',
-			'type'  => 'text',
-		),
-		array(
-			'name' => 'Lunedi - pomeriggio',
-			'id' => $prefix . 'lun_close',
-			'type'  => 'text',
-		),
-    array(
-			'name' => 'martedi - mattina',
-			'id' => $prefix . 'mar_open',
-			'type'  => 'text',
-		),
-		array(
-			'name' => 'Martedi - pomeriggio',
-			'id' => $prefix . 'mar_close',
-			'type'  => 'text',
-		),
-    array(
-			'name' => 'Mercoledi - mattina',
-			'id' => $prefix . 'mer_open',
-			'type'  => 'text',
-		),
-		array(
-			'name' => 'Mercoledi - pomeriggio',
-			'id' => $prefix . 'mer_close',
-			'type'  => 'text',
-		),
-    array(
-			'name' => 'Giovedi - mattina',
-			'id' => $prefix . 'gio_open',
-			'type'  => 'text',
-		),
-		array(
-			'name' => 'Giovedi - pomeriggio',
-			'id' => $prefix . 'gio_close',
-			'type'  => 'text',
-		),
-    array(
-			'name' => 'Venerdi - mattina',
-			'id' => $prefix . 'ven_open',
-			'type'  => 'text',
-		),
-		array(
-			'name' => 'Venerdi - pomeriggio',
-			'id' => $prefix . 'ven_close',
-			'type'  => 'text',
-		),
-	)
-);
-
-$meta_boxes[] = array(
-	'id'    => 'contact',
-	'title' => 'Contatti o Mission',
-	'pages' => array( 'page' ),
-
-	'fields' => array(
-    array(
-			'name' => 'Titolo 01',
-			'id' => $prefix . 'contact01_title',
-			'type'  => 'text',
-		),
-		// TEXT
-		array(
-			'name' => 'Testo 01',
-			'id'   => "{$prefix}contact01",
-			'type' => 'textarea',
-			'cols' => '40',
-			'rows' => '8',
-		),
-     array(
-			'name' => 'Titolo 02',
-			'id' => $prefix . 'contact02_title',
-			'type'  => 'text',
-		),
-		// TEXTAREA
-		array(
-			'name' => 'Testo 02',
-			'id'   => "{$prefix}contact02",
-			'type' => 'textarea',
-			'cols' => '40',
-			'rows' => '8',
-		),
-    array(
-			'name' => 'Titolo 03',
-			'id' => $prefix . 'contact03_title',
-			'type'  => 'text',
-		),
-		// TEXTAREA
-		array(
-			'name' => 'Testo 03',
-			'id'   => "{$prefix}contact03",
-			'type' => 'textarea',
-			'cols' => '40',
-			'rows' => '8',
-		),
-     array(
-			'name' => 'Titolo 04',
-			'id' => $prefix . 'contact04_title',
-			'type'  => 'text',
-		),
-		// TEXTAREA
-		array(
-			'name' => 'Testo 04',
-			'id'   => "{$prefix}contact04",
-			'type' => 'textarea',
-			'cols' => '40',
-			'rows' => '8',
-		),
-    		// IMAGE UPLOAD
-		array(
-			'name' => 'Prima immagine',
-			'id'   => "{$prefix}image_contact",
-			'type' => 'plupload_image',
-			'max_file_uploads' => 1,
-		),
-	)
-);
-
-$meta_boxes[] = array(
-	'id'    => 'page_light_box',
-	'title' => 'Widget centrale a tre colonne con testo a sinistra e lightbox (Templates 3, 3.1 e 7)',
-	'pages' => array( 'page' ),
-
-	'fields' => array(
-		// TEXT
-		array(
-			'name' => 'Titolo box sinistra',
-			'id' => $prefix . 'page_light_box_title_left',
-			'type'  => 'text',
-		),
-		// TEXTAREA
-		array(
-			'name' => 'Testo box sinistra',
-			'id'   => "{$prefix}page_light_box_text_left",
-			'type' => 'textarea',
-			'cols' => '40',
-			'rows' => '8',
-		),
-    // TEXT
-		array(
-			'name' => 'Titolo secondo box',
-			'id' => $prefix . 'light_box_title_second',
-			'type'  => 'text',
-		),
-		// TEXTAREA
-		array(
-			'name' => 'Testo secondo box',
-			'id'   => "{$prefix}light_box_text_second",
-			'type' => 'textarea',
-			'cols' => '40',
-			'rows' => '8',
-		),
+    'fields' => array(
       // TEXT
-		array(
-			'name' => 'Testo a destra sotto le immagini',
-			'id' => $prefix . 'light_box_title_third',
-			'type'  => 'text',
-		),
-		// TEXT
-		array(
-			'name' => 'Titolo prima immagine',
-			'id' => $prefix . 'page_light_box_title_first',
-			'type'  => 'text',
-		),
-		// TEXT
-		array(
-			'name' => 'Sottotitolo prima immagine',
-			'id' => $prefix . 'page_light_box_subtitle_first',
-			'type'  => 'text',
-		),
-		// TEXTAREA
-		array(
-			'name' => 'Testo prima immagine',
-			'id'   => "{$prefix}page_light_box_text_first",
-			'type' => 'textarea',
-			'cols' => '40',
-			'rows' => '8',
-		),
-		// IMAGE UPLOAD
-		array(
-			'name' => 'Prima immagine',
-			'id'   => "{$prefix}page_light_box_image_first",
-			'type' => 'plupload_image',
-			'max_file_uploads' => 1,
-		),
-		// TEXT
-		array(
-			'name' => 'Titolo seconda immagine',
-			'id' => $prefix . 'page_light_box_title_second',
-			'type'  => 'text',
-		),
-		// TEXT
-		array(
-			'name' => 'Sottotitolo seconda immagine',
-			'id' => $prefix . 'page_light_box_subtitle_second',
-			'type'  => 'text',
-		),
-		// TEXTAREA
-		array(
-			'name' => 'Testo seconda immagine',
-			'id'   => "{$prefix}page_light_box_text_second",
-			'type' => 'textarea',
-			'cols' => '40',
-			'rows' => '8',
-		),
-		// IMAGE UPLOAD
-		array(
-			'name' => 'Seconda immagine',
-			'id'   => "{$prefix}page_light_box_image_second",
-			'type' => 'plupload_image',
-			'max_file_uploads' => 1,
-		),
-		// TEXT
-		array(
-			'name' => 'Titolo terza immagine',
-			'id' => $prefix . 'page_light_box_title_third',
-			'type'  => 'text',
-		),
-		// TEXT
-		array(
-			'name' => 'Sottotitolo terza immagine',
-			'id' => $prefix . 'page_light_box_subtitle_third',
-			'type'  => 'text',
-		),
-		// TEXTAREA
-		array(
-			'name' => 'Testo terza immagine',
-			'id'   => "{$prefix}page_light_box_text_third",
-			'type' => 'textarea',
-			'cols' => '40',
-			'rows' => '8',
-		),
-		// IMAGE UPLOAD
-		array(
-			'name' => 'Terza immagine',
-			'id'   => "{$prefix}page_light_box_image_third",
-			'type' => 'plupload_image',
-			'max_file_uploads' => 1,
-		),
-	)
-);
+      array(
+        'name' => 'Sottotitolo',
+        'id' => $prefix . 'sottotitolo',
+        'type'  => 'text',
+      )
+    )
+  );
+}
+//
+if ($template_file!='template_contatti.php' && $template_file!='template_mission.php' && $template_file!='template_prenotazione.php' && $template_file!='template_8.php' && $template_file!='template_3.php')  {
+  $meta_boxes[] = array(
+    'id'    => 'overwrite_gal',
+    'title' => 'L\'immagine in evidenza deve sostituire la galleria? (Valido per le pagine che hanno una galleria)',
+    'pages' => array( 'page' ),
 
+    'fields' => array(
+      array(
+        'name' => 'Sovrascrivi la galleria con la "featured image"',
+        'id'   => "{$prefix}overwrite_gallery",
+        'type' => 'select',
+        'options' => array(
+          'no' => 'No',
+          'si' => 'Si',
+          )
+        ),
+    )
+  );
+}
+// 2nd meta box
+if ($template_file!='template_contatti.php' && $template_file!='template_mission.php' && $template_file!='template_prenotazione.php')  {
+  $meta_boxes[] = array(
+    'id'    => 'blog_post_gallery',
+    'title' => 'Galleria del Post',
+    'pages' => array( 'post' ),
 
+    'fields' => array(
+      // PLUPLOAD IMAGE UPLOAD (WP 3.3+)
+      array(
+        'name'             => 'Immagini',
+        'desc'             => 'Lista delle Immagini',
+        'id'               => "{$prefix}blog_post_gallery_id",
+        'type'             => 'plupload_image',
+        'max_file_uploads' => 6,
+      )
+    )
+  );
+}
 
-$meta_boxes[] = array(
-	'id'    => 'three_column_boxes',
-	'title' => 'Testo a tre colonne (valido per i template con 3 box)',
-	'pages' => array( 'page' ),
+if ($template_file!='template_contatti.php' && $template_file!='template_mission.php' && $template_file!='template_prenotazione.php' && $template_file!='template_8.php' && $template_file!='template_3.php')  {
+  $meta_boxes[] = array(
+    'id'    => 'page_gallery',
+    'title' => 'Galleria della Pagina',
+    'pages' => array( 'page' ),
 
-	'fields' => array(
-		array(
-			'name' => 'Attivare il testo a tre colonne',
-			'id'   => "{$prefix}activate_text",
-      'type' => 'select',
-      'options' => array(
-				'no' => 'No',
-        'si' => 'Si',
-        )
+    'fields' => array(
+      // PLUPLOAD IMAGE UPLOAD (WP 3.3+)
+      array(
+        'name'             => 'Immagini',
+        'desc'             => 'Lista delle Immagini, dimensioni 765px x 302px',
+        'id'               => "{$prefix}page_gallery_id",
+        'type'             => 'plupload_image',
+        'max_file_uploads' => 6,
+      )
+    )
+  );
+}
+
+if ($template_file!='template_contatti.php' && $template_file!='template_mission.php' && $template_file!='template_prenotazione.php' && $template_file!='template_8.php' && $template_file!='template_organico.php')  {
+  $meta_boxes[] = array(
+    'id'    => 'page_three_cols',
+    'title' => 'Widget centrale a tre colonne (Templates 2 e 3.1)',
+    'pages' => array( 'page' ),
+
+    'fields' => array(
+      // TEXT
+      array(
+        'name' => 'Titolo widget',
+        'id' => $prefix . 'page_three_cols_title',
+        'type'  => 'text',
       ),
-    // TEXTAREA
-		array(
-			'name' => 'Testo',
-			'id'   => "{$prefix}optional_text",
-			'type' => 'textarea',
-			'cols' => '40',
-			'rows' => '8',
-		)
-	)
-);
+      // TEXTAREA
+      array(
+        'name' => 'Testo',
+        'id'   => "{$prefix}page_three_cols",
+        'type' => 'textarea',
+        'cols' => '40',
+        'rows' => '8',
+      )
+    )
+  );
+}
 
+
+if ($template_file=='template_prenotazione.php')  {
+  $meta_boxes[] = array(
+    'id'    => 'orari',
+    'title' => 'Orari di apertura',
+    'pages' => array( 'page' ),
+
+    'fields' => array(
+      // TEXT
+      array(
+        'name' => 'Lunedi - mattina',
+        'id' => $prefix . 'lun_open',
+        'type'  => 'text',
+      ),
+      array(
+        'name' => 'Lunedi - pomeriggio',
+        'id' => $prefix . 'lun_close',
+        'type'  => 'text',
+      ),
+      array(
+        'name' => 'martedi - mattina',
+        'id' => $prefix . 'mar_open',
+        'type'  => 'text',
+      ),
+      array(
+        'name' => 'Martedi - pomeriggio',
+        'id' => $prefix . 'mar_close',
+        'type'  => 'text',
+      ),
+      array(
+        'name' => 'Mercoledi - mattina',
+        'id' => $prefix . 'mer_open',
+        'type'  => 'text',
+      ),
+      array(
+        'name' => 'Mercoledi - pomeriggio',
+        'id' => $prefix . 'mer_close',
+        'type'  => 'text',
+      ),
+      array(
+        'name' => 'Giovedi - mattina',
+        'id' => $prefix . 'gio_open',
+        'type'  => 'text',
+      ),
+      array(
+        'name' => 'Giovedi - pomeriggio',
+        'id' => $prefix . 'gio_close',
+        'type'  => 'text',
+      ),
+      array(
+        'name' => 'Venerdi - mattina',
+        'id' => $prefix . 'ven_open',
+        'type'  => 'text',
+      ),
+      array(
+        'name' => 'Venerdi - pomeriggio',
+        'id' => $prefix . 'ven_close',
+        'type'  => 'text',
+      ),
+    )
+  );
+}
+if ($template_file=='template_contatti.php' || $template_file=='template_mission.php')  {
+  $meta_boxes[] = array(
+    'id'    => 'contact',
+    'title' => 'Contatti o Mission',
+    'pages' => array( 'page' ),
+
+    'fields' => array(
+      array(
+        'name' => 'Titolo 01',
+        'id' => $prefix . 'contact01_title',
+        'type'  => 'text',
+      ),
+      // TEXT
+      array(
+        'name' => 'Testo 01',
+        'id'   => "{$prefix}contact01",
+        'type' => 'textarea',
+        'cols' => '40',
+        'rows' => '8',
+      ),
+       array(
+        'name' => 'Titolo 02',
+        'id' => $prefix . 'contact02_title',
+        'type'  => 'text',
+      ),
+      // TEXTAREA
+      array(
+        'name' => 'Testo 02',
+        'id'   => "{$prefix}contact02",
+        'type' => 'textarea',
+        'cols' => '40',
+        'rows' => '8',
+      ),
+      array(
+        'name' => 'Titolo 03',
+        'id' => $prefix . 'contact03_title',
+        'type'  => 'text',
+      ),
+      // TEXTAREA
+      array(
+        'name' => 'Testo 03',
+        'id'   => "{$prefix}contact03",
+        'type' => 'textarea',
+        'cols' => '40',
+        'rows' => '8',
+      ),
+       array(
+        'name' => 'Titolo 04',
+        'id' => $prefix . 'contact04_title',
+        'type'  => 'text',
+      ),
+      // TEXTAREA
+      array(
+        'name' => 'Testo 04',
+        'id'   => "{$prefix}contact04",
+        'type' => 'textarea',
+        'cols' => '40',
+        'rows' => '8',
+      ),
+          // IMAGE UPLOAD
+      array(
+        'name' => 'Prima immagine',
+        'id'   => "{$prefix}image_contact",
+        'type' => 'plupload_image',
+        'max_file_uploads' => 1,
+      ),
+    )
+  );
+}
+if ($template_file!='template_contatti.php' && $template_file!='template_mission.php' && $template_file!='template_prenotazione.php' && $template_file!='template_8.php' && $template_file!='template_organico.php' && $template_file!='template_ambulatorio.php')  {
+  $meta_boxes[] = array(
+    'id'    => 'page_light_box',
+    'title' => 'Widget centrale a tre colonne con testo a sinistra e lightbox (Templates 3, 3.1 e 7)',
+    'pages' => array( 'page' ),
+
+    'fields' => array(
+      // TEXT
+      array(
+        'name' => 'Titolo box sinistra',
+        'id' => $prefix . 'page_light_box_title_left',
+        'type'  => 'text',
+      ),
+      // TEXTAREA
+      array(
+        'name' => 'Testo box sinistra',
+        'id'   => "{$prefix}page_light_box_text_left",
+        'type' => 'textarea',
+        'cols' => '40',
+        'rows' => '8',
+      ),
+      // TEXT
+      array(
+        'name' => 'Titolo secondo box',
+        'id' => $prefix . 'light_box_title_second',
+        'type'  => 'text',
+      ),
+      // TEXTAREA
+      array(
+        'name' => 'Testo secondo box',
+        'id'   => "{$prefix}light_box_text_second",
+        'type' => 'textarea',
+        'cols' => '40',
+        'rows' => '8',
+      ),
+        // TEXT
+      array(
+        'name' => 'Testo a destra sotto le immagini',
+        'id' => $prefix . 'light_box_title_third',
+        'type'  => 'text',
+      ),
+      // TEXT
+      array(
+        'name' => 'Titolo prima immagine',
+        'id' => $prefix . 'page_light_box_title_first',
+        'type'  => 'text',
+      ),
+      // TEXT
+      array(
+        'name' => 'Sottotitolo prima immagine',
+        'id' => $prefix . 'page_light_box_subtitle_first',
+        'type'  => 'text',
+      ),
+      // TEXTAREA
+      array(
+        'name' => 'Testo prima immagine',
+        'id'   => "{$prefix}page_light_box_text_first",
+        'type' => 'textarea',
+        'cols' => '40',
+        'rows' => '8',
+      ),
+      // IMAGE UPLOAD
+      array(
+        'name' => 'Prima immagine',
+        'id'   => "{$prefix}page_light_box_image_first",
+        'type' => 'plupload_image',
+        'max_file_uploads' => 1,
+      ),
+      // TEXT
+      array(
+        'name' => 'Titolo seconda immagine',
+        'id' => $prefix . 'page_light_box_title_second',
+        'type'  => 'text',
+      ),
+      // TEXT
+      array(
+        'name' => 'Sottotitolo seconda immagine',
+        'id' => $prefix . 'page_light_box_subtitle_second',
+        'type'  => 'text',
+      ),
+      // TEXTAREA
+      array(
+        'name' => 'Testo seconda immagine',
+        'id'   => "{$prefix}page_light_box_text_second",
+        'type' => 'textarea',
+        'cols' => '40',
+        'rows' => '8',
+      ),
+      // IMAGE UPLOAD
+      array(
+        'name' => 'Seconda immagine',
+        'id'   => "{$prefix}page_light_box_image_second",
+        'type' => 'plupload_image',
+        'max_file_uploads' => 1,
+      ),
+      // TEXT
+      array(
+        'name' => 'Titolo terza immagine',
+        'id' => $prefix . 'page_light_box_title_third',
+        'type'  => 'text',
+      ),
+      // TEXT
+      array(
+        'name' => 'Sottotitolo terza immagine',
+        'id' => $prefix . 'page_light_box_subtitle_third',
+        'type'  => 'text',
+      ),
+      // TEXTAREA
+      array(
+        'name' => 'Testo terza immagine',
+        'id'   => "{$prefix}page_light_box_text_third",
+        'type' => 'textarea',
+        'cols' => '40',
+        'rows' => '8',
+      ),
+      // IMAGE UPLOAD
+      array(
+        'name' => 'Terza immagine',
+        'id'   => "{$prefix}page_light_box_image_third",
+        'type' => 'plupload_image',
+        'max_file_uploads' => 1,
+      ),
+    )
+  );
+}
+
+if ($template_file=='template_kiniesologia.php' || $template_file=='template_organico.php')  {
+  $meta_boxes[] = array(
+    'id'    => 'three_column_boxes',
+    'title' => 'Testo a tre colonne senza titolo',
+    'pages' => array( 'page' ),
+
+    'fields' => array(
+      array(
+        'name' => 'Attivare il testo a tre colonne',
+        'id'   => "{$prefix}activate_text",
+        'type' => 'select',
+        'options' => array(
+          'no' => 'No',
+          'si' => 'Si',
+          )
+        ),
+      // TEXTAREA
+      array(
+        'name' => 'Testo',
+        'id'   => "{$prefix}optional_text",
+        'type' => 'textarea',
+        'cols' => '40',
+        'rows' => '8',
+      )
+    )
+  );
+}
+
+//Metabox per lo staff post type
 $meta_boxes[] = array(
 	'id'    => 'staff_data',
 	'title' => 'Scheda del membro dello staff',
@@ -582,7 +599,7 @@ $meta_boxes[] = array(
 	)
 );
 
-
+//metabox per discipline post type
 $meta_boxes[] = array(
 	'id'    => 'disciplina_data',
 	'title' => 'Disciplina',

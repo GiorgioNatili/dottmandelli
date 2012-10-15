@@ -89,7 +89,9 @@
 .justify{
     text-align:justify;
     }
-
+.transparentbg{
+    background: rgba(255,255,255,0.85) none;
+    }
 #sm-main-header{
     background: #f7f6ea none;
     @shadow: 0 3px 3px 2px rgb(227,224,207);
@@ -315,6 +317,7 @@
     z-index:50;
     position: relative;
     background-color:#F1F1F1;
+    background: rgba(241,241,241,0.95) none;
     &.theme-1{
         .png("bg_home", " ", "repeat", "0", "0");
         .wrapper{
@@ -342,12 +345,13 @@
             .Clr;
             .font-size(40);
             text-transform: uppercase;
+            font-size:3.8em;
         }
         .d-text{
             .font-size(11);
-            .HelveticaNeue;
             text-align: justify;
             line-height: 1.8;
+            font-size:1.3em;
         }
         .more{
             .font-size(14);
@@ -363,6 +367,9 @@
         .more:hover{
             text-decoration:underline;
         }
+        p{
+            line-height:1.4em;
+            }
     }
     .block-1{
         position: absolute;
@@ -1100,6 +1107,14 @@ overflow: hidden;
         padding-bottom:0;
         }
     }
+#single-post{
+    .slide-container{
+        img{
+            width:550px;
+            height:315px;
+            }
+        }
+    }
 .blog-entry-meta{
     font-size:1.4em;
     width:100%:
@@ -1109,7 +1124,7 @@ overflow: hidden;
 .staff-entry-header{
     .single-entry-header;
     .blu-text;
-    border-bottom:2px dashed #bebebb;
+    border-bottom:1px dashed #bebebb;
     min-height:70px;
     padding:20px 10px 0;
     margin:0 10px;
@@ -1243,6 +1258,8 @@ margin-right:20px;
         border:4px solid #FFF;
         margin:0 37px 20px 10px;
         cursor:pointer;
+        width:145px;
+        height: 85px;
       }
     }
 .tagcontainer{
@@ -1292,9 +1309,14 @@ margin-right:20px;
             }
         }
     }
-
+.wpcf7-validation-errors{
+        font-size:1.8em;
+        -moz-border-radius: 10px;
+        border-radius: 10px;
+        border: 3px solid #1a2469 !important;
+    }
 .ajax-loader{
-    margin-left:-50px !important;
+    margin-left:-80px !important;
     }
 /*FINE FORM*/
 .staff-title{
@@ -1416,7 +1438,7 @@ margin-right:20px;
     .t2-three-col-widget{
         border-bottom:none;
         .d-text{
-          border-top:2px dashed #BFBFBD;  
+          border-top:1px dashed #BFBFBD;  
           padding: 20px 10px 0 10px;
             }
         }
@@ -1425,7 +1447,7 @@ margin-right:20px;
     .t2-three-col-widget{
         border-bottom:none;
         .d-text{
-          border-top:2px dashed #BFBFBD;  
+          border-top:1px dashed #BFBFBD;  
           padding: 20px 10px 0 10px;
             }
         }
@@ -1490,7 +1512,7 @@ margin-right:20px;
     width:98%;
     height:25px;
     margin:20px 10px;
-    border-bottom:2px dashed #bfbfbd;
+    border-bottom:1px dashed #bfbfbd;
     }
 .box-text{
     width:300px;

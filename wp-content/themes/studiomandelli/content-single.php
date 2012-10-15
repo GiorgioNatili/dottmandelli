@@ -64,7 +64,7 @@ $prefix = 'studio_mandelli_';
 		<?php wp_link_pages( array( 'before' => '<div class="page-link"><span>' . __( 'Pages:', 'twentyeleven' ) . '</span>', 'after' => '</div>' ) ); ?>
     <div class="tagcontainer harmonia uppercase azure-text"><img alt='tags'src='<?php print site_url(); ?>/wp-content/themes/studiomandelli/sm_img/tags.png'/><?php if ($posttags) {
   foreach($posttags as $tag) {
-    echo '<a href="'. get_tag_link($tag->id) .'">' . $tag->name . '</a> '; 
+    echo ' ' . $tag->name . '&nbsp; '; 
   }
 } 
 ?> </div>

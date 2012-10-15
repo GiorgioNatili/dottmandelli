@@ -9,6 +9,14 @@
 	}
 	$image = wp_get_attachment_image_src( get_post_thumbnail_id( $recent["ID"] ), 'single-post-thumbnail' );
 	$last_post['image'] =$image[0];
+  
+  $trimmed=$last_post['content'];
+  $post=get_post($last_post['ID']);
+  $postc=$post->post_content;
+  $contenuto=strip_tags($postc);
+  $testotrim=substr($contenuto, 0, 465);
+  
+  if ($trimmed=='' || !$last_post['content']){$testo=$testotrim;} else {$testo=$last_post['content'];}
 ?>
 
 <div id="fat-footer">
@@ -22,7 +30,7 @@
 					</div>
 					<div class="footer-last-post-content">
 						<div class="d-text">
-							<?php echo($last_post['content']); ?>
+							<?php echo $testo; ?>
 						</div>
 						<a href="<?php echo($last_post['link']); ?>" class="more">LEGGI</a>
 					</div>

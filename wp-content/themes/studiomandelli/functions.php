@@ -11,6 +11,16 @@
     }
   
 }
+
+
+	add_action('init', 'search_query_fix');
+	function search_query_fix(){
+		if(isset($_GET['s']) && $_GET['s']==''){
+			$_GET['s']=' ';
+		}
+	}
+
+
 add_action('admin_footer', 'custom_admin_js');
   
 	function my_child_theme_setup() {
@@ -55,6 +65,7 @@ add_action('admin_footer', 'custom_admin_js');
 			echo '<script src="'.$mySiteUrl.'/sm_js/libs/bowser.js"></script>' . "\n";
 			echo '<script src="'.$mySiteUrl.'/sm_js/main.js"></script>' . "\n";
 			echo '<script src="'.$mySiteUrl.'/sm_js/libs/placeholder.js"></script>' . "\n";
+      echo '<script src="'.$mySiteUrl.'/sm_js/pages/checksearch.js"></script>' . "\n";
 			if ( !is_admin() && is_page_template('homepage.php') ){
 				echo '<script src="'.$mySiteUrl.'/sm_js/pages/homepage.js"></script>' . "\n";
 			}

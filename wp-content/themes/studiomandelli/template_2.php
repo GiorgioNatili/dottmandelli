@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: SM Template 2 (Ambulatorio)
+ * Template Name: SM Template 2 (Ambulatorio) [Da buttare]
  * Description: Full-with width dynamic post gallery
  */
 

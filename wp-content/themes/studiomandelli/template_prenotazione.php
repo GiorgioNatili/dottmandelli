@@ -79,7 +79,7 @@ $meta_img = rwmb_meta( $prefix.'blog_post_gallery_id',$argimage);
 		</section>
     <section class="t2-prenotazione clearfix">
     <div class="fleft mini-title">
-			<h4 class="harmonia red-text uppercase">ORARI DI APERTURA</h4>
+			<h4 class="harmonia red-text uppercase bold">ORARI DI APERTURA</h4>
     </div>
 			<div class="fleft mini-title uppercase big-margin tright brown-text">
 				<h4 class="harmonia bold"><?php print $meta_subtitle; ?></h4>

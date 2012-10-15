@@ -3,7 +3,7 @@
  * Template Name: SM Template 3 (Figli Struttura)
  * Description: Full-with width dynamic post gallery
  */
-
+$prefix = 'studio_mandelli_';
 get_header(); ?>
 
 <?php 
@@ -23,43 +23,54 @@ if ( $terms && ! is_wp_error( $terms ) ){
 
 	}
 }
-$page_light_box_title_left = get_post_meta( $post->ID, 'studio_mandelli_page_light_box_title_left', false );
-$page_light_box_text_left = get_post_meta( $post->ID, 'studio_mandelli_page_light_box_text_left', false );
 
-$page_light_box_title_first = get_post_meta( $post->ID, 'studio_mandelli_page_light_box_title_first', false );
-$page_light_box_subtitle_first = get_post_meta( $post->ID, 'studio_mandelli_page_light_box_subtitle_first', false );
-$page_light_box_text_first = get_post_meta( $post->ID, 'studio_mandelli_page_light_box_text_first', false );
-$page_light_box_image_first = get_post_meta( $post->ID, 'studio_mandelli_page_light_box_image_first', false );
+$arglightbox=array('type'=>'image','size'=>'lightbox-thumb');
 
-$page_light_box_title_second = get_post_meta( $post->ID, 'studio_mandelli_page_light_box_title_second', false );
-$page_light_box_subtitle_second = get_post_meta( $post->ID, 'studio_mandelli_page_light_box_subtitle_second', false );
-$page_light_box_text_second = get_post_meta( $post->ID, 'studio_mandelli_page_light_box_text_second', false );
-$page_light_box_image_second = get_post_meta( $post->ID, 'studio_mandelli_page_light_box_image_second', false );
+$page_light_box_title_left = rwmb_meta( $prefix.'page_light_box_title_left');
+$page_light_box_text_left = rwmb_meta( $prefix.'page_light_box_text_left');
+$page_light_box_title_big = rwmb_meta( $prefix.'light_box_title_second');
+$page_light_box_text_big = rwmb_meta( $prefix.'light_box_text_second');
+$page_light_box_title_last = rwmb_meta( $prefix.'light_box_title_third');
 
-$page_light_box_title_third = get_post_meta( $post->ID, 'studio_mandelli_page_light_box_title_third', false );
-$page_light_box_subtitle_third = get_post_meta( $post->ID, 'studio_mandelli_page_light_box_subtitle_third', false );
-$page_light_box_text_third = get_post_meta( $post->ID, 'studio_mandelli_page_light_box_text_third', false );
-$page_light_box_image_third = get_post_meta( $post->ID, 'studio_mandelli_page_light_box_image_third', false );
+$page_light_box_title_first = rwmb_meta( $prefix.'page_light_box_title_first'); 
+$page_light_box_subtitle_first = rwmb_meta( $prefix.'page_light_box_subtitle_first'); 
+$page_light_box_text_first = rwmb_meta( $prefix.'page_light_box_text_first');
+$page_light_box_image_first = rwmb_meta( $prefix.'page_light_box_image_first',$arglightbox);
+
+$page_light_box_title_second = rwmb_meta( $prefix.'page_light_box_title_second'); 
+$page_light_box_subtitle_second = rwmb_meta( $prefix.'page_light_box_subtitle_second');  
+$page_light_box_text_second = rwmb_meta( $prefix.'page_light_box_text_second');
+$page_light_box_image_second = rwmb_meta( $prefix.'page_light_box_image_second',$arglightbox); 
+
+$page_light_box_title_third = rwmb_meta( $prefix.'page_light_box_title_third');  
+$page_light_box_subtitle_third = rwmb_meta( $prefix.'page_light_box_subtitle_third');   
+$page_light_box_text_third = rwmb_meta( $prefix.'page_light_box_text_third');   
+$page_light_box_image_third = rwmb_meta( $prefix.'page_light_box_image_third',$arglightbox);
+
+$page_sottotitolo = rwmb_meta( $prefix.'sottotitolo');   
+
+	$three_cols_title = get_post_meta( $post->ID, 'studio_mandelli_page_three_cols_title', false );
+	$three_cols_content = get_post_meta( $post->ID, 'studio_mandelli_page_three_cols', false );
 ?>
 <?php while ( have_posts() ) : the_post(); ?>
 	<?php
 		$page_content = get_the_content();
 		$page_title = get_the_title();
 		$page_id = get_the_ID();
-		$image = wp_get_attachment_image_src( get_post_thumbnail_id($page_id), 'single-post-thumbnail' );
+		$image = wp_get_attachment_image_src( get_post_thumbnail_id($page_id), 'page-gallery' );
 		$srcs = $image[0];
 	?>
 <?php endwhile; ?>
 
-<div id="main" role="main">
+<div id="main" class="strutturamain" role="main">
 	<div class="wrapper">
 		<section class="t3-upper-content clearfix">
 			<header class="header">
-				<h2><?php echo $page_title; ?></h2>
-				<a class="back yellow-gradient ie9fix roundeight" href="/?page_id=8"><span>Torna a <strong>Ambulatorio</strong></span></a>
+				<h2 class="orange-text"><?php echo $page_title; ?></h2>
+				<a class="single-entry-back-link" href="<?php print site_url(); ?>/ambulatorio"> <img src="<?php print site_url(); ?>/wp-content/themes/studiomandelli/sm_img/back_ambulatorio.png" /></a>
 			</header>
 			<article class="content">
-				<div class="d-text">
+				<div class="d-text helvetica normal-text">
 					<?php echo $page_content; ?>
 				</div>
 			</article>
@@ -71,59 +82,88 @@ $page_light_box_image_third = get_post_meta( $post->ID, 'studio_mandelli_page_li
 				</div>
 			</aside>
 		</section>
-		<section class="t3-lightbox clearfix">
-			<article class="content">
-				<h4><?php echo $page_light_box_title_left[0]; ?></h4>
-				<p><?php echo $page_light_box_text_left[0]; ?></p>
-			</article>
-			<div class="gallery">
-				<!--<a href="#" class="g-item">-->
-					<figure class="g-item">
-						<?php
-							$fsrc = wp_get_attachment_image_src( $page_light_box_image_first[0], 'full' );
-	    					$fsrcs = $fsrc[0];
-	    					echo "<img src='{$fsrcs}' width='270' height='160' alt=''/>";
-						?>
-						<figcaption>
-							<p><em><?php echo $page_light_box_title_first[0]; ?></em><strong><?php echo $page_light_box_subtitle_first[0]; ?></strong></p>
-							<p class="hidden"><?php echo $page_light_box_text_first[0]; ?></p>
-						</figcaption>
-					</figure>
-				<!--</a>-->
-				<!--<a href="#" class="g-item">-->
-					<figure class="g-item">
-						<?php 
-							$ssrc = wp_get_attachment_image_src( $page_light_box_image_second[0], 'full' );
-	    					$ssrcs = $ssrc[0];
-	    					echo "<img src='{$ssrcs}' width='270' height='160' alt=''/>";
-						?>
-						<figcaption>
-							<p><em><?php echo $page_light_box_title_second[0]; ?></em><strong><?php echo $page_light_box_subtitle_second[0]; ?></strong></p>
-							<p class="hidden"><?php echo $page_light_box_text_second[0]; ?></p>
-						</figcaption>
-					</figure>
-				<!--</a>-->
-				<!--<a href="#" class="g-item">-->
-					<figure class="g-item">
-						<?php 
-							$tsrc = wp_get_attachment_image_src( $page_light_box_image_third[0], 'full' );
-	    					$tsrcs = $tsrc[0];
-	    					echo "<img src='{$tsrcs}' width='270' height='160' alt=''/>";
-						?>
-						<figcaption>
-							<p><em><?php echo $page_light_box_title_third[0]; ?></em><strong><?php echo $page_light_box_subtitle_third[0]; ?></strong></p>
-							<p class="hidden"><?php echo $page_light_box_text_third[0]; ?></p>
-						</figcaption>
-					</figure>
-				<!--</a>-->
+		<section class="lights clearfix ">
+      <div class="mini-textbox fleft  ">
+			<h3 class="uppercase mini-title harmonia bold"><?php print $page_light_box_title_left; ?></h3>
+			<div class="d-text normal-text helvetica justify">
+				<?php print $page_light_box_text_left; ?>
+			</div>
+      </div>
+      
+      <div class="light mini-image fleft">
+      <?php 
+      $i=0;
+      foreach ($page_light_box_image_first as $img) { 
+        if ($i==0){?>
+          <a href="<?php print $img['full_url']; ?>" rel="lightbox"><img src="<?php print $img['url']; ?>" title="<?php print $page_light_box_text_first; ?>" width="270" height="160"/></a>
+          <?php }
+          $i++;} ?>
+			<div class="d-text harmonia uppercase">
+			<span class="bigger-text bold"><?php print $page_light_box_subtitle_first.'</span><span class="normal-text brown-text bold"> '.$page_light_box_subtitle_first; ?></span>
+			</div>
+      </div>
+      
+      <div class="light mini-image fleft">
+      <?php 
+      $i=0;
+      foreach ($page_light_box_image_second as $img) { 
+        if ($i==0){?>
+          <a href="<?php print $img['full_url']; ?>" rel="lightbox"><img src="<?php print $img['url']; ?>" title="<?php print $page_light_box_text_second; ?>" width="270" height="160"/></a>
+          <?php }
+          $i++;} ?>
+			<div class="d-text harmonia uppercase">
+			<span class="bigger-text bold"><?php print $page_light_box_subtitle_second.'</span><span class="normal-text brown-text bold"> '.$page_light_box_subtitle_second; ?></span>
+			</div>
+      </div>
+      
+      <div class="light mini-image fleft">
+      <?php 
+      $i=0;
+      foreach ($page_light_box_image_third as $img) { 
+        if ($i==0){?>
+          <a href="<?php print $img['full_url']; ?>" rel="lightbox"><img src="<?php print $img['url']; ?>" title="<?php print $page_light_box_text_third; ?>" width="270" height="160"/></a>
+          <?php }
+          $i++;} ?>
+			<div class="d-text harmonia uppercase">
+			<span class="bigger-text bold"><?php print $page_light_box_subtitle_third.'</span><span class="normal-text brown-text bold"> '.$page_light_box_subtitle_third; ?></span>
+			</div>
+      </div>
+		</section>
+    <?php 
+    $titolo=trim($three_cols_title[0]);
+    $contenuto=trim($three_cols_content[0]);
+    if ($contenuto!='') { ?>
+    <section class="t2-three-col-widget optional-box clearfix" style="padding-bottom:20px;">
+			<h3><?php echo $three_cols_title[0]; ?></h3>
+      
+			<div class="d-text helvetica">
+      <?php 
+        $strlen=strlen($three_cols_content[0]);
+        $strchunk=$strlen/3;
+        $intstr=intval($strchunk)+1;
+        $column=str_split($three_cols_content[0],$intstr);
+        ?>
+        <div class="text-column">
+        <?php print $column[0];?>
+        </div>
+        
+        <div class="text-column">
+        <?php print $column[1];?>
+        </div>
+        
+        <div class="text-column last">
+        <?php print $column[2];?>
+        </div>
 			</div>
 		</section>
+    <?php } ?>
     
-    
-		<section class="t2-boxes large clearfix">
+		<section class="t2-boxes-sicurezza clearfix">
 		<?php 
 			for($i = 0; $i < count($writeTermList); ++$i){
-				$htmlBox = '<div class="box ';
+      
+        if ($i==0){$first='ml0';}
+				$htmlBox = '<div class="box '.$first.' ';
 				$htmlBox .= $writeTermList[$i][0];
 				$htmlBox .= '">';
 				$htmlBox .= '<div class="box-icon">';

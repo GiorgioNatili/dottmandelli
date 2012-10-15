@@ -23,7 +23,7 @@ $prefix = 'studio_mandelli_';
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
   <header class="blog-entry-header">
 		<h2 class="single-entry-title harmonia pink-text"><?php the_title(); ?></h2>
-    <a class="single-entry-back-link" href="<?php print site_url(); ?>/disciplina"> <img src="<?php print site_url(); ?>/wp-content/themes/studiomandelli/sm_img/discipline.png" /></a>
+    <a class="single-entry-back-link" href="#"> <img src="<?php print site_url(); ?>/wp-content/themes/studiomandelli/sm_img/discipline.png" /></a>
     </header>
   <div class="disciplina-foto">
 
